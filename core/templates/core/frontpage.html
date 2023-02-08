@@ -8,7 +8,7 @@
             Welcome to Ecommerce Home
         </p>
         <p class="mb-10 text-white">
-            We sell furniture for the modern home
+            We sell modern mobile phones for all segment
         </p>
         <a href="#" class="inline-block px-8 py-4 rounded-xl bg-white text-purple-500 hover:bg-gray-200">
             Start shopping
@@ -18,20 +18,22 @@
 
 <div class="max-w-6xl mx-auto py-2 px-6 xl:px-0">
     <div class="products flex items-center flex-wrap">
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6">
-            <a href="#">
-                <img class="rounded-xl hover:shadow-lg" src="{% static 'images/download.jpg' %}">
-            </a>
-
-            <div class="pt-3 flex items-center justify-between">
-                <a href="#">Product name</a>
-                <a href="#" class="text-purple-500 hover:text-purple-800">
-                    <i class="fa-solid fa-cart-shopping"></i>
+        {% for product in products %}
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6">
+                <a href="#">
+                    <img class="rounded-xl hover:shadow-lg" src="{% static 'images/download.jpg' %}">
                 </a>
-            </div>
 
-            <p class="pt-1 text-black-400">999$</p>
-        </div>
+                <div class="pt-3 flex items-center justify-between">
+                    <a href="#">{{ product.name }}</a>
+                    <a href="#" class="text-purple-500 hover:text-purple-800">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </div>
+
+                <p class="pt-1 text-black-400">{{ product.price }}$</p>
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
