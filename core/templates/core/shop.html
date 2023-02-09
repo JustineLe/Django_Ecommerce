@@ -6,9 +6,9 @@
     <div class="filters items-start w-full lg:w-1/4">
         <h3 class="mb-3 text-xl uppercase">Search</h3>
 
-        <form>
+        <form method="get" action=".">
             <div class="flex">
-                <input type="text" class="p-4 bg-gray-100 border-0" placeholder="Search mobile name">
+                <input type="text" name="search" class="p-4 bg-gray-100 border-0" placeholder="Search mobile name">
                 <button type="text" class="p-4 bg-gray-100 border-0">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
@@ -18,9 +18,11 @@
         <h3 class="mt-6 mb-3 text-xl uppercase">Categories</h3>
 
         <ul class="space-y-2">
-            <li><a href="#" class="text-purple-500">All categories</a></li>
-            <li><a href="#" class="text-gray-500">Iphone</a></li>
-            <li><a href="#" class="text-gray-500">Samsung</a></li>
+            <li><a href="{% url 'shop' %}" class="{% if not active_category %}text-purple-500{% else %}text-gray-500{% endif %}">All categories</a></li>
+
+            {% for category in categories %}
+                <li><a href="{% url 'shop' %}?category={{ category.slug }}" class="{% if category.slug == active_category %}text-purple-500{% else %}text-gray-500{% endif %}">{{ category.name }}</a></li>
+            {% endfor %}
         </ul>
     </div>
 
