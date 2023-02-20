@@ -22,9 +22,8 @@
                 <a href="#">
                     <i class="fa-solid fa-circle-user"></i>
                 </a>
-                <a href="#">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
+
+                {% include 'cart/menu_cart.html' %}
             </div>
         </div>
     </nav>
@@ -32,6 +31,7 @@
     <main>
         {% block header %} {% endblock %}
         {% block detail %} {% endblock %}
+        {% block content %} {% endblock %}
     </main>
 
     <footer class="bg-gray-100">
@@ -51,5 +51,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/htmx.org@1.8.5"></script>
 </body>
 </html>
