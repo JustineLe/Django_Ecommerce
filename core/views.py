@@ -37,3 +37,11 @@ def shop(request):
     }
 
     return render(request, 'core/shop.html', context)
+
+
+def signup(request):
+    return render(request, 'core/signup.html')
+
+
+def login(request):
+    return render(request, 'core/login.html')

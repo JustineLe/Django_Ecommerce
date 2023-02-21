@@ -1,5 +1,4 @@
 {% extends 'core/base.html' %}
-{% load static %}
 
 {% block detail %}
 <div class="max-w-6xl mx-6 flex flex-wrap items-start py-6 px-6 xl:px-0">
@@ -26,7 +25,7 @@
         </ul>
     </div>
 
-    <div class="products w-full lg:w-3/4 -mt-4 flex items-start flex-wrap">
+    <div class="products w-full lg:w-3/4 -mt-4 flex items-center flex-wrap">
         {% for product in products %}
             {% include 'product/partials/product_list_item.html' %}
         {% endfor %}
