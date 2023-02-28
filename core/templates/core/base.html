@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/ac43ccb573.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}{% endblock %} | Ecommerce</title>
 </head>
 <body>
     <nav class="border-b border-gray-300">
@@ -23,7 +24,7 @@
             </div>
 
             <div class="menu-right flex items-center space-x-4">
-                <a href="#">
+                <a href="{% url 'login' %}">
                     <i class="fa-solid fa-circle-user"></i>
                 </a>
 
