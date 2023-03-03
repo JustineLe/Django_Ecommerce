@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,6 +33,8 @@ ALLOWED_HOSTS = []
 SESSION_COOKIE_AGE = 86400
 
 CART_SESSION_ID = 'cart'
+STRIPE_API_KEY_PUBLISHABLE = os.getenv('STRIPE_API_KEY_PUBLISHABLE')
+STRIPE_API_KEY_HIDDEN = os.getenv('STRIPE_API_KEY_HIDDEN')
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
@@ -48,6 +53,7 @@ INSTALLED_APPS = [
     'core',
     'product',
     'cart',
+    'order',
 ]
 
 MIDDLEWARE = [
