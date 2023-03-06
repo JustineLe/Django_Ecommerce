@@ -16,33 +16,41 @@
 
         <hr>
 
-        <h2 class="my-6 text-xl">My orders</h2>
+        <h2 class="my-6 text-xl font-bold">My orders</h2>
 
-        <div class="w-full mb-6 p-6 flex flex-wrap bg-gray-100 rounded-xl">
+        {% for order in request.user.order.all %}
+            <div class="w-full mb-6 p-6 flex flex-wrap bg-gray-100 rounded-xl">
             <div class="mb-6 flex justify-between">
-                <a href="#">Order id: 1</a>
+                <a href="#">Order id: {{ order.id }}</a>
             </div>
 
             <div class="mb-6 w-full">
-                <div class="product mb-6 flex pr-6">
+                {% for item in order.items.all %}
+                    <div class="product mb-6 flex pr-6">
                     <a href="#" class="w-1/4">
-                        <img class="hover:shadow-lg rounded-xl" src="#">
+                        <img class="hover:shadow-lg rounded-xl" src="{{ item.product.get_thumbnail }}">
                     </a>
 
                     <div class="w-3/4 pl-6">
                         <div class="flex justify-between">
-                            <a href="#" class="text-lg">Product name</a>
+                            <a href="#" class="text-lg">{{ item.product.name }}</a>
 
-                            <p class="mb-6 pt-1 text-gray-400">999$</p>
+                            <p class="mb-6 pt-1 text-gray-400">{{ item.get_total_price }}$</p>
+                        </div>
+
+                        <div class="mt-6">
+                            Quantity: {{ item.quantity }}
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
 
             <div>
-                <p class="text-lg">Date: </p>
-                <p class="text-lg">Total:</p>
+                <p class="text-lg">Date: {{ order.created_at }}</p>
+                <p class="text-lg">Total: {{ order.get_total_price }}</p>
             </div>
         </div>
+        {% endfor %}
     </div>
 {% endblock %}

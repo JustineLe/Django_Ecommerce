@@ -33,7 +33,7 @@
                     hx-trigger="update-menu-cart from:body"
                     hx-swap="innerHTML"
             >
-                {% include 'cart/menu_cart.html' %}
+                {% include 'cart/partials/menu_cart.html' %}
             </div>
 
         </div>
@@ -65,5 +65,7 @@
 </footer>
 
 <script src="https://unpkg.com/htmx.org@1.8.5"></script>
+{% block scripts %}
+{% endblock %}
 </body>
 </html>
